@@ -1,0 +1,13 @@
+sam/com/common/BaseTest.class
+sam/com/pageObjectModal/Pages/CommonPage.class
+sam/com/pageObjectModal/Testcases/CartDetailTest.class
+sam/com/pageObjectModal/Testcases/ProductDetailTest.class
+sam/com/pageObjectModal/Pages/ManageProfilePage.class
+sam/com/pageObjectModal/Pages/CartDetailPage.class
+sam/com/pageObjectModal/Pages/DashboardPage.class
+sam/com/pageObjectModal/Testcases/ManageProfileTest.class
+sam/com/pageObjectModal/Pages/CheckoutDetailPage.class
+sam/com/pageObjectModal/Pages/LoginPage.class
+sam/com/pageObjectModal/Testcases/LoginTest.class
+sam/com/pageObjectModal/Pages/ProductDetailPage.class
+sam/com/pageObjectModal/Testcases/CheckoutDetailTest.class

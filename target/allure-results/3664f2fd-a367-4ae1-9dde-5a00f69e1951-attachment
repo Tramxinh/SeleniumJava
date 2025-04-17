@@ -1,0 +1,1 @@
+Get text 22 on element By.xpath: //input[@name='attribute_id_1']/following-sibling::span
