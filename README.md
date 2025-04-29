@@ -1,4 +1,4 @@
-# 🚗 Dự Án Auto Testing with Selenium + Java
+# 🚗 Project Auto Testing with Selenium + Java
 
 This project uses ** Selenium WebDriver **, ** Java **, and ** TestNG ** to automate the user interface test on
 the browser. The test case is designed to run ** parallel (parallel) ** to optimize the execution time.
@@ -6,12 +6,12 @@ the browser. The test case is designed to run ** parallel (parallel) ** to optim
 
 ## 🔧 Technical used
 
-- ☕ Java (JDK 8+)
+- ☕ Java (JDK 17+)
 - 🌐 Selenium WebDriver
 - 🧪 TestNG
 - 📦 Maven
 - 🧩 ChromeDriver
-- 💡 Log4j / ExtentReports
+- 💡 Log4j / Allure Reports
 
 ---
 
@@ -32,12 +32,11 @@ Du-An-Auto-Selenium/
 │       │           ├── common/         # Common utility class
 │       │           └── pageObjectModal # Function Page
 │       └── resources/   # File resource (test data, config, v.v.)
-├── suites/               # Folder test suite (testng.xml, v.v.)
-├── target/               # Output Maven (build, compiled files, v.v.)
+├── suites/               # Folder test suite (testng.xml, v.v.) 
 ├── .gitignore            
 ├── pom.xml               # File Maven to management dependency & structure
 ├── README.md             # Introduction Document, project tutorial 
-├── yarn.lock            
+           
 
 
 

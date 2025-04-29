@@ -41,20 +41,18 @@ public class ExcelHelper {
             File f = new File(DEFAULT_EXCEL_PATH);
 
             if (!f.exists()) {
-                throw new Exception("File doesn't exist.");// ném ra lỗi và dừng lại tại dòng code đó.
+                throw new Exception("File doesn't exist.");
             }
 
             fis = new FileInputStream(DEFAULT_EXCEL_PATH);
-            wb = WorkbookFactory.create(fis);// thư viện giúp đọc data trong excel
-            sh = wb.getSheet(SHEET_NAME);// hàm của apache poi support
+            wb = WorkbookFactory.create(fis);
+            sh = wb.getSheet(SHEET_NAME);
 
             if (sh == null) {
                 throw new Exception("Sheet name doesn't exist.");
             }
 
             this.excelFilePath = DEFAULT_EXCEL_PATH;
-
-            //adding all the column header names to the map 'columns'
             sh.getRow(0).forEach(cell -> {
                 columns.put(cell.getStringCellValue(), cell.getColumnIndex());
             });
@@ -92,8 +90,7 @@ public class ExcelHelper {
         }
     }
 
-    //Gọi ra hàm này dùng cho rõ ràng phải làm file excel có tên cột mới dùng hàm này
-    public String getCellData(String columnName, int rowIndex) {// int la vi tri index
+    public String getCellData(String columnName, int rowIndex) {
         Integer colum = columns.get(columnName);
         return getCellData(colum, rowIndex);
     }
