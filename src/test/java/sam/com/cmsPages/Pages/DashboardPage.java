@@ -10,7 +10,7 @@ public class DashboardPage extends CommonPage {
     public DashboardPage() {
     }
 
-    private final By dashboardMenu = By.xpath("(//div[@class='sidemnenu mb-3']/ul/li)[1]");
+    private final By dashboardMenu = By.xpath("(//span[@class='aiz-side-nav-text'][normalize-space()='Dashboard'])[1]");
 
     public void verifyDashboardMenu() {
         WebUI.waitForElementsVisibled(dashboardMenu, 2);
