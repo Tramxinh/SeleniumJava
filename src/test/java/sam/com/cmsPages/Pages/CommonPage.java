@@ -1,4 +1,4 @@
-package sam.com.pageObjectModal.Pages;
+package sam.com.cmsPages.Pages;
 
 import org.openqa.selenium.By;
 import sam.com.constants.keywords.WebUI;

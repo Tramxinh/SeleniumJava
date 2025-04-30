@@ -18,7 +18,7 @@ the browser. The test case is designed to run ** parallel (parallel) ** to optim
 ## 📁 Folder structure
 
 ```bash
-Du-An-Auto-Selenium/
+Project-Auto-Selenium/
 ├── .idea/                # IntelliJ IDEA structure
 ├── allure-report/        # Allure report
 ├── export/               # Export file folder
@@ -42,9 +42,9 @@ Du-An-Auto-Selenium/
 
 🚀 Tutorial run the project
 1. Clone to local
-git clone https://github.com/samdao39/DU_AN_AUTO_SELENIUM.git
+git clone https://github.com/Tramxinh/SeleniumJava.git
 
-cd cd Du-An-Auto-Selenium
+cd Project-Auto-Selenium
 
 2. Install dependency
 mvn clean install
@@ -74,7 +74,7 @@ List test case run auto test:
 List test case is writed follow to the Page Object Model (POM) and improvement to run parallel.
 
 🛠 System is required:
-✅ Java JDK 8 or more
+✅ Java JDK 17 or more
 
 ✅ Maven 3.6+
 
@@ -89,5 +89,5 @@ Contact:
 
 📧 Email: daonguyenanhtram@gmail.com
 
-🧑‍💻 GitHub: @samdao39
+🧑‍💻 GitHub: @Tramxinh
 

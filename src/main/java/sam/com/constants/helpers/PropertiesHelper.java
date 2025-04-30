@@ -1,6 +1,6 @@
 package sam.com.constants.helpers;
 
-import sam.com.constants.Utils.LogUtils;
+import sam.com.constants.utils.LogUtils;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

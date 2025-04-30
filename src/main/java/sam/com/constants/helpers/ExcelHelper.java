@@ -3,7 +3,7 @@ package sam.com.constants.helpers;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFCellStyle;
-import sam.com.constants.Utils.LogUtils;
+import sam.com.constants.utils.LogUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +28,7 @@ public class ExcelHelper {
     private String excelFilePath;
     private Map<String, Integer> columns = new HashMap<>();
     private static final String DEFAULT_EXCEL_PATH = "src/test/resources/DataExcel/ExcelData.xlsx";
-    private static final String EXCEL_SHEET_NAME = "Sheet 1";
+    private static final String EXCEL_SHEET_NAME = "Personal_Info";
 
     public static ExcelHelper getExcelHelper(String SHEET_NAME) {
         ExcelHelper excelHelper = new ExcelHelper();

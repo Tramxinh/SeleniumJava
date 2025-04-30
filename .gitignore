@@ -3,4 +3,7 @@ node_modules/
 target/
 .gitmodules/
 yarn.lock/
+export/
+*.iml
+logs/
 

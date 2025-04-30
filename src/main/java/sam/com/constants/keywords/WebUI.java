@@ -10,10 +10,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import sam.com.constants.Utils.LogUtils;
 import sam.com.constants.constants.ConfigData;
 import sam.com.constants.constants.drivers.DriverManager;
-import sam.com.constants.report.AllureManager;
+import sam.com.constants.reports.AllureManager;
+import sam.com.constants.utils.LogUtils;
 
 import java.time.Duration;
 import java.util.List;

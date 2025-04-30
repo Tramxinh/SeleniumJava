@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="setup driver run pom" verbose="1">
+    <test name="parallel pom" parallel="classes">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="sam.com.cmsPages.Testcases.LoginTest"/>
+            <class name="sam.com.cmsPages.Testcases.ManageProfileTest"/>
+            <class name="sam.com.cmsPages.Testcases.ProductDetailTest"/>
+            <class name="sam.com.cmsPages.Testcases.CartDetailTest"/>
+            <class name="sam.com.cmsPages.Testcases.CheckoutDetailTest"/>
+
+        </classes>
+    </test>
+</suite>

@@ -1,11 +1,11 @@
-package sam.com.pageObjectModal.Testcases;
+package sam.com.cmsPages.Testcases;
 
 import org.testng.annotations.Test;
+import sam.com.cmsPages.Pages.DashboardPage;
+import sam.com.cmsPages.Pages.LoginPage;
+import sam.com.cmsPages.Pages.ProductDetailPage;
 import sam.com.common.BaseTest;
 import sam.com.constants.constants.ConfigData;
-import sam.com.pageObjectModal.Pages.DashboardPage;
-import sam.com.pageObjectModal.Pages.LoginPage;
-import sam.com.pageObjectModal.Pages.ProductDetailPage;
 
 public class ProductDetailTest extends BaseTest {
 
