@@ -2,6 +2,8 @@ package sam.com.cmsPages.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.helpers.ExcelHelper;
 import sam.com.constants.keywords.WebUI;
 import sam.com.constants.reports.AllureManager;
@@ -61,8 +63,8 @@ public class ProductDetailPage extends CommonPage {
     @Step("Add product to cart")
     public void addProductToCart() {
         WebUI.waitForPageLoaded();
-        WebUI.clickElement(addToCartButton, 2);
-        WebUI.waitForElementsVisibled(popupSuccess, 2);
+        WebUI.clickElement(addToCartButton, TimeoutConstants.SHORT_TIMEOUT);
+        WebUI.waitForElementsVisibled(popupSuccess, TimeoutConstants.SHORT_TIMEOUT);
         WebUI.clickElement(closePopup, 1);
 
         // Add screenshot for verification

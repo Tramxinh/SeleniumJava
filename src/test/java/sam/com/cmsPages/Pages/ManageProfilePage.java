@@ -6,6 +6,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import sam.com.constants.constants.ConfigData;
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.helpers.CaptureHelper;
 import sam.com.constants.helpers.ExcelHelper;
@@ -33,7 +34,7 @@ public class ManageProfilePage extends CommonPage {
 
     @Step("Click Manage Profile Tab")
     public void clickManageProfileTab() {
-        WebUI.clickElement(manageProfileTab, 3);
+        WebUI.clickElement(manageProfileTab, TimeoutConstants.MEDIUM_TIMEOUT);
         WebUI.waitForPageLoaded();
     }
 
@@ -58,14 +59,14 @@ public class ManageProfilePage extends CommonPage {
             WebUI.setText(passwordConfirmInfo, ConfigData.PASSWORD);
 
             // Update profile
-            WebUI.clickElement(updateButton, 2);
+            WebUI.clickElement(updateButton, TimeoutConstants.SHORT_TIMEOUT);
         } catch (Exception e) {
             LogUtils.error("Error in inputBasicInfo: " + e.getMessage());
         }
     }
 
     private void clearAndSetText(By locator, String text) {
-        WebUI.clickElement(locator, 0);
+        WebUI.clickElement(locator, TimeoutConstants.VERY_SHORT_TIMEOUT);
         Actions action = new Actions(DriverManager.getDriver());
         action.keyDown(WebUI.getWebElement(locator), Keys.COMMAND)
                 .sendKeys("A")
@@ -81,12 +82,12 @@ public class ManageProfilePage extends CommonPage {
             CaptureHelper.startRecord("loginFailWithEmailInvalid");
             ExcelHelper excelHelper = ExcelHelper.getExcelHelper(SHEET_NAME);
 
-            WebUI.clickElement(photoInfo, 0);
-            WebUI.clickElement(searchFile, 2);
+            WebUI.clickElement(photoInfo, TimeoutConstants.VERY_SHORT_TIMEOUT);
+            WebUI.clickElement(searchFile, TimeoutConstants.SHORT_TIMEOUT);
 
             String fileName = excelHelper.getCellData("File Name", 1);
             WebUI.setText(searchFile, fileName);
-            WebUI.waitForElementClickable(selectFile, 2);
+            WebUI.waitForElementClickable(selectFile, TimeoutConstants.SHORT_TIMEOUT);
 
             handleFileIsSelected();
         } catch (Exception e) {
@@ -97,16 +98,17 @@ public class ManageProfilePage extends CommonPage {
     @Step("Upload photo")
     public void uploadPhoto() {
         try {
-            WebUI.clickElement(photoInfo, 2);
-            WebUI.clickElement(uploadNewButton, 2);
+            WebUI.clickElement(photoInfo, TimeoutConstants.SHORT_TIMEOUT);
+            WebUI.clickElement(uploadNewButton, TimeoutConstants.SHORT_TIMEOUT);
 
             String fullPath = System.getProperty("user.dir") + IMAGE_PATH;
             WebUI.setText(uploadFile, fullPath);
 
-            WebUI.waitForElementsVisibled(addFileButton, 4);
-            WebUI.clickElement(addFileButton, 0);
+            WebUI.waitForElementsVisibled(addFileButton, TimeoutConstants.LONG_TIMEOUT);
+            WebUI.clickElement(addFileButton, TimeoutConstants.VERY_SHORT_TIMEOUT);
         } catch (Exception e) {
             LogUtils.error("Error in uploadPhoto: " + e.getMessage());
+            throw new RuntimeException("Failed to upload photo: " + e.getMessage(), e);
         }
     }
 
@@ -117,10 +119,10 @@ public class ManageProfilePage extends CommonPage {
             String selectedState = fileElement.getAttribute("data-selected");
 
             if ("true".equals(selectedState)) {
-                WebUI.clickElement(selectFile, 0);
+                WebUI.clickElement(selectFile, TimeoutConstants.VERY_SHORT_TIMEOUT);
             }
 
-            WebUI.clickElement(addFileButton, 0);
+            WebUI.clickElement(addFileButton, TimeoutConstants.VERY_SHORT_TIMEOUT);
         } catch (Exception e) {
             LogUtils.error("Error in handleFileIsSelected: " + e.getMessage());
         }

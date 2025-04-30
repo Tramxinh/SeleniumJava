@@ -2,6 +2,8 @@ package sam.com.cmsPages.Pages;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.keywords.WebUI;
 
@@ -13,7 +15,7 @@ public class DashboardPage extends CommonPage {
     private final By dashboardMenu = By.xpath("(//span[@class='aiz-side-nav-text'][normalize-space()='Dashboard'])[1]");
 
     public void verifyDashboardMenu() {
-        WebUI.waitForElementsVisibled(dashboardMenu, 2);
+        WebUI.waitForElementsVisibled(dashboardMenu, TimeoutConstants.SHORT_TIMEOUT);
         Assert.assertEquals(DriverManager.getDriver().getCurrentUrl(), "https://cms.anhtester.com/dashboard", "Fail.The current Url not matching");
         Assert.assertTrue(WebUI.getWebElement(dashboardMenu).isDisplayed(), "Fail.The Dashboard is not displayed");
     }

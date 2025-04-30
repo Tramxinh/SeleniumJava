@@ -23,7 +23,7 @@ public class ProductDetailTest extends BaseTest {
         String[] listProduct = new String[]{"Hoodie", "Shirt"};
         for (int index = 0; index < listProduct.length; index++) {
             String productName = listProduct[index];
-            productDetailPage.searchProduct(productName);
+            productDetailPage.searchAndSelectProduct(productName);
             productDetailPage.getInfoProductSetToExcel(index + 1);
         }
 

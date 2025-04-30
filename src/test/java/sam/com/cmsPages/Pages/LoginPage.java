@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import sam.com.constants.constants.ConfigData;
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.helpers.CaptureHelper;
 import sam.com.constants.keywords.WebUI;
@@ -64,7 +65,7 @@ public class LoginPage extends DashboardPage {
 
     @Step("verify Login CMSFail ")
     public void verifyLoginCMSFail() {
-        WebUI.waitForElementsVisibled(errorMessage, 2);
+        WebUI.waitForElementsVisibled(errorMessage, TimeoutConstants.SHORT_TIMEOUT);
         AllureManager.saveScreenshotPNG();
         CaptureHelper.captureScreenshot("loginCMSFail");
         Assert.assertTrue(DriverManager.getDriver().findElement(errorMessage).isDisplayed(), "Fail.The error message is not displayed");

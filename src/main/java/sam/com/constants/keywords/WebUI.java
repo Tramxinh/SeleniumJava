@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import sam.com.constants.constants.ConfigData;
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.reports.AllureManager;
 import sam.com.constants.utils.LogUtils;
@@ -63,11 +64,9 @@ public class WebUI {
         List<WebElement> listElement = getWebElements(by);
         if (listElement.size() > 0) {
             LogUtils.info("Element " + by + " existing.");
-            //System.out.println("Element " + by + " existing.");
             return true;
         } else {
             LogUtils.info("Element " + by + " NOT exist.");
-            //System.out.println("Element " + by + " NOT exist.");
             return false;
         }
     }
@@ -82,7 +81,7 @@ public class WebUI {
 
     public static void openURL(String url) {
         DriverManager.getDriver().get(url);
-        sleep(3);
+        sleep(TimeoutConstants.MEDIUM_TIMEOUT);
     }
 
     @Step("waitForElementClickable {0} with timeout {1}")

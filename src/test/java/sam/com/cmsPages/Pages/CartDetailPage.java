@@ -4,6 +4,8 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.helpers.ExcelHelper;
 import sam.com.constants.keywords.WebUI;
 import sam.com.constants.reports.AllureManager;
@@ -25,7 +27,7 @@ public class CartDetailPage extends CommonPage {
 
     @Step("View cart and proceed to checkout")
     public CheckoutDetailPage viewCart() {
-        WebUI.clickElement(iConCart, 2);
+        WebUI.clickElement(iConCart, TimeoutConstants.SHORT_TIMEOUT);
         WebUI.clickElement(viewCartButton, 1);
         return new CheckoutDetailPage();
     }

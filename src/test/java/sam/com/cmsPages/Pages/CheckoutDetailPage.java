@@ -1,6 +1,8 @@
 package sam.com.cmsPages.Pages;
 
 import org.openqa.selenium.By;
+
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.keywords.WebUI;
 
 public class CheckoutDetailPage extends CartDetailPage {
@@ -17,14 +19,14 @@ public class CheckoutDetailPage extends CartDetailPage {
         WebUI.waitForPageLoaded();
         WebUI.clickElement(addressInforRadio, 1);
         WebUI.clickElement(continueToDeliveryInfo, 1);
-        WebUI.clickElement(continueToPaymentButton, 2);
+        WebUI.clickElement(continueToPaymentButton, TimeoutConstants.SHORT_TIMEOUT);
 
     }
 
     public void completePayment() {
         WebUI.waitForPageLoaded();
-        WebUI.clickElement(agreeCheckbox, 2);
-        WebUI.clickElement(completeOrderButton, 4);
+        WebUI.clickElement(agreeCheckbox, TimeoutConstants.SHORT_TIMEOUT);
+        WebUI.clickElement(completeOrderButton, TimeoutConstants.LONG_TIMEOUT);
     }
 
     public void checkCompleteOrderSuccess() {

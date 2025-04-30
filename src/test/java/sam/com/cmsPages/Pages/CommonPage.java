@@ -1,6 +1,8 @@
 package sam.com.cmsPages.Pages;
 
 import org.openqa.selenium.By;
+
+import sam.com.constants.constants.TimeoutConstants;
 import sam.com.constants.keywords.WebUI;
 
 public class CommonPage {
@@ -15,12 +17,12 @@ public class CommonPage {
     public final By viewCartButton = By.xpath("//a[normalize-space()='View cart']");
 
 
-    public void searchProduct(String value) {
-        WebUI.clickElement(searchBox, 2);
+    public void searchAndSelectProduct(String value) {
+        WebUI.clickElement(searchBox, TimeoutConstants.SHORT_TIMEOUT);
         WebUI.waitForPageLoaded();
         WebUI.setText(searchBox, value);
-        WebUI.clickElement(iconSearch, 2);
-        WebUI.clickElement(searchResult, 3);
+        WebUI.clickElement(iconSearch, TimeoutConstants.SHORT_TIMEOUT);
+        WebUI.clickElement(searchResult, TimeoutConstants.MEDIUM_TIMEOUT);
     }
 
 }

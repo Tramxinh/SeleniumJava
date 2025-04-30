@@ -21,7 +21,7 @@ public class CartDetailTest extends BaseTest {
         dashboardPage = loginPage.loginCmsToDashboard(ConfigData.EMAIL, ConfigData.PASSWORD);
         String[] listProductName = new String[]{"Shirt", "Hoodie"};
         for (String productName : listProductName) {
-            productDetailPage.searchProduct(productName);
+            productDetailPage.searchAndSelectProduct(productName);
             productDetailPage.addProductToCart();
         }
         cartDetailPage.viewCart();
