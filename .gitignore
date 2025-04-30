@@ -1,6 +1,9 @@
 .idea/
 node_modules/
 target/
-.gitmodules/
-yarn.lock/
+.gitmodules
+yarn.lock
+export/
+*.iml
+logs/
 

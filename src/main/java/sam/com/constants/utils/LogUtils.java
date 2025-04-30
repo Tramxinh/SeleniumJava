@@ -1,4 +1,4 @@
-package sam.com.constants.Utils;
+package sam.com.constants.utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

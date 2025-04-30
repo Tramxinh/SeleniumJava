@@ -1,4 +1,4 @@
-package sam.com.pageObjectModal.Pages;
+package sam.com.cmsPages.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -7,7 +7,7 @@ import sam.com.constants.constants.ConfigData;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.helpers.CaptureHelper;
 import sam.com.constants.keywords.WebUI;
-import sam.com.constants.report.AllureManager;
+import sam.com.constants.reports.AllureManager;
 
 
 public class LoginPage extends DashboardPage {

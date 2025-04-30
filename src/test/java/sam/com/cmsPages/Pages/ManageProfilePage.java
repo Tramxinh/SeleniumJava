@@ -1,20 +1,20 @@
-package sam.com.pageObjectModal.Pages;
+package sam.com.cmsPages.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import sam.com.constants.Utils.LogUtils;
 import sam.com.constants.constants.ConfigData;
 import sam.com.constants.constants.drivers.DriverManager;
 import sam.com.constants.helpers.CaptureHelper;
 import sam.com.constants.helpers.ExcelHelper;
 import sam.com.constants.keywords.WebUI;
+import sam.com.constants.utils.LogUtils;
 
 public class ManageProfilePage extends CommonPage {
     // Constants
-    private static final String SHEET_NAME = "Sheet 1";
+    private static final String SHEET_NAME = "Personal_Info";
     private static final String IMAGE_PATH = "/src/test/resources/FileImage/samcuptest1.png";
 
     // Locators

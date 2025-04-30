@@ -1,10 +1,10 @@
-package sam.com.pageObjectModal.Pages;
+package sam.com.cmsPages.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import sam.com.constants.helpers.ExcelHelper;
 import sam.com.constants.keywords.WebUI;
-import sam.com.constants.report.AllureManager;
+import sam.com.constants.reports.AllureManager;
 
 public class ProductDetailPage extends CommonPage {
 
@@ -17,7 +17,7 @@ public class ProductDetailPage extends CommonPage {
     private final By popupSuccess = By.xpath("//div[@id='addToCart-modal-body']");
     private final By closePopup = By.xpath("//div[@id='modal-size']/div/button[@aria-label='Close']");
 
-    private static final String SHEET_NAME = "Sheet 2";
+    private static final String SHEET_NAME = "Product_Info";
 
     @Step("Get product information and save to Excel at row {rowIndex}")
     public void getInfoProductSetToExcel(int rowIndex) {

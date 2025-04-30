@@ -7,9 +7,9 @@ import org.monte.screenrecorder.ScreenRecorder;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.io.FileHandler;
-import sam.com.constants.Utils.LogUtils;
 import sam.com.constants.constants.ConfigData;
 import sam.com.constants.constants.drivers.DriverManager;
+import sam.com.constants.utils.LogUtils;
 
 import java.awt.*;
 import java.io.File;

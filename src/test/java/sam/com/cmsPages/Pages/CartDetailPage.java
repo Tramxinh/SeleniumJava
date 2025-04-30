@@ -1,4 +1,4 @@
-package sam.com.pageObjectModal.Pages;
+package sam.com.cmsPages.Pages;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import sam.com.constants.helpers.ExcelHelper;
 import sam.com.constants.keywords.WebUI;
-import sam.com.constants.report.AllureManager;
+import sam.com.constants.reports.AllureManager;
 
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -43,7 +43,7 @@ public class CartDetailPage extends CommonPage {
         List<WebElement> items = WebUI.getWebElements(productInTable);
 
         // Load Excel data
-        ExcelHelper.getExcelHelper("Sheet 1");
+        ExcelHelper.getExcelHelper("Personal_Info");
         List<Map<String, String>> excelDataList = ExcelHelper.getAllData();
 
         for (WebElement item : items) {

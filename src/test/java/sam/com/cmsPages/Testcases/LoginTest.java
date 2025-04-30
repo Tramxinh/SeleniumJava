@@ -1,12 +1,12 @@
-package sam.com.pageObjectModal.Testcases;
+package sam.com.cmsPages.Testcases;
 
 
 import org.testng.annotations.Test;
+import sam.com.cmsPages.Pages.LoginPage;
 import sam.com.common.BaseTest;
 import sam.com.constants.constants.ConfigData;
 import sam.com.constants.helpers.CaptureHelper;
 import sam.com.constants.helpers.ExcelHelper;
-import sam.com.pageObjectModal.Pages.LoginPage;
 
 public class LoginTest extends BaseTest {
     //khởi tạo đối tương cho  page login
@@ -24,10 +24,10 @@ public class LoginTest extends BaseTest {
     @Test()
     public void loginFailWithEmailInvalid() {
         CaptureHelper.startRecord("loginFailWithEmailInvalid");
-        ExcelHelper.getExcelHelper("Sheet 1");
+        ExcelHelper.getExcelHelper("Personal_Info");
         loginPage = new LoginPage();
         loginPage.clickPopup();
-        loginPage.loginCMS(ExcelHelper.getExcelHelper("Sheet 1").getCellData("Email", 1), ExcelHelper.getExcelHelper("Sheet 1").getCellData("Password", 2));
+        loginPage.loginCMS(ExcelHelper.getExcelHelper("Personal_Info").getCellData("Email", 1), ExcelHelper.getExcelHelper("Personal_Info").getCellData("Password", 2));
         loginPage.verifyLoginCMSFail();
         CaptureHelper.stopRecord();
     }
@@ -36,10 +36,10 @@ public class LoginTest extends BaseTest {
     @Test()
     public void loginFailWithPasswordInvalid() {
         CaptureHelper.startRecord("loginFailWithPasswordInvalid");
-        ExcelHelper.getExcelHelper("Sheet 1");
+        ExcelHelper.getExcelHelper("Personal_Info");
         loginPage = new LoginPage();
         loginPage.clickPopup();
-        loginPage.loginCMS(ConfigData.EMAIL, ExcelHelper.getExcelHelper("Sheet 1").getCellData("Password", 1));
+        loginPage.loginCMS(ConfigData.EMAIL, ExcelHelper.getExcelHelper("Personal_Info").getCellData("Password", 1));
         loginPage.verifyLoginCMSFail();
         CaptureHelper.stopRecord();
     }

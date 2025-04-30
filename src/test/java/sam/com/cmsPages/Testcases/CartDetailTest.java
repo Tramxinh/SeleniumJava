@@ -1,9 +1,9 @@
-package sam.com.pageObjectModal.Testcases;
+package sam.com.cmsPages.Testcases;
 
 import org.testng.annotations.Test;
+import sam.com.cmsPages.Pages.*;
 import sam.com.common.BaseTest;
 import sam.com.constants.constants.ConfigData;
-import sam.com.pageObjectModal.Pages.*;
 
 public class CartDetailTest extends BaseTest {
     ProductDetailPage productDetailPage;
