@@ -1,93 +1,167 @@
+
+
+
+          
 # 🚗 Project Auto Testing with Selenium + Java
 
-This project uses ** Selenium WebDriver **, ** Java **, and ** TestNG ** to automate the user interface test on
-the browser. The test case is designed to run ** parallel (parallel) ** to optimize the execution time.
+This project uses **Selenium WebDriver**, **Java**, and **TestNG** to automate user interface testing on browsers. The test cases are designed to run in **parallel** to optimize execution time.
+
 ---
 
-## 🔧 Technical used
+## 🔧 Technologies Used
 
 - ☕ Java (JDK 17+)
-- 🌐 Selenium WebDriver
-- 🧪 TestNG
+- 🌐 Selenium WebDriver 4.31.0
+- 🧪 TestNG 7.4.0
 - 📦 Maven
-- 🧩 ChromeDriver
+- 🧩 WebDriver (ChromeDriver)
 - 💡 Log4j / Allure Reports
+- 📊 Apache POI (Excel Processing)
+- 🎥 Monte Screen Recorder
 
 ---
 
-## 📁 Folder structure
+## 📁 Project Structure
+
+```
+Project-Auto-Selenium/
+├── src/
+│   ├── main/             # Main source code
+│   │   ├── java/         # Contains main Java classes
+│   │   └── resources/    # Resources for main source code
+│   └── test/
+│       ├── java/         # Test source code
+│       │   └── com/
+│       │       └── sam/
+│       │           ├── cms/
+│       │           │   └── tests/    # Test cases
+│       │           ├── common/       # Common utility classes
+│       │           └── pageObjects/  # Page Object Model classes
+│       └── resources/    # Resources for tests (test data, configuration, etc.)
+├── suites/               # Directory containing test suites (suiteCms.xml, etc.)
+├── logs/                 # Directory for log files
+├── export/               # Directory for exported files
+├── allure-report/        # Allure reports
+├── pom.xml               # Maven file for dependency & structure management
+└── README.md             # Project introduction and guide
+```
+
+---
+
+## 🚀 How to Run the Project
+
+### 1. System Requirements
+
+- ✅ Java JDK 17 or higher
+- ✅ Maven 3.6+
+- ✅ Chrome browser (or other browsers depending on configuration)
+- ✅ Corresponding WebDriver (ChromeDriver, EdgeDriver, etc.)
+
+### 2. Clone the Project
 
 ```bash
-Project-Auto-Selenium/
-├── .idea/                # IntelliJ IDEA structure
-├── allure-report/        # Allure report
-├── export/               # Export file folder
-├── logs/                 # Files log
-├── src/
-│   ├── main/             # Source code main
-│   └── test/
-│       ├── java/
-│       │   └── sam/
-│       │       └── com/
-│       │           ├── common/         # Common utility class
-│       │           └── pageObjectModal # Function Page
-│       └── resources/   # File resource (test data, config, v.v.)
-├── suites/               # Folder test suite (testng.xml, v.v.) 
-├── .gitignore            
-├── pom.xml               # File Maven to management dependency & structure
-├── README.md             # Introduction Document, project tutorial 
-           
-
-
-
-🚀 Tutorial run the project
-1. Clone to local
 git clone https://github.com/Tramxinh/SeleniumJava.git
-
 cd Project-Auto-Selenium
+```
 
-2. Install dependency
+### 3. Install Dependencies
+
+```bash
 mvn clean install
+```
 
-3. Run test parallel with TestNG
-mvn test -DsuiteXmlFile=suites/testng.xml
+### 4. Run Tests with Maven
 
-4. Run file Allure report
- allure generate --single-file target/allure-results --clean        
- then open file html in  folder allure report
+```bash
+mvn test -DsuiteXmlFile=suites/suiteCms.xml
+```
 
-5. Test Cases
-List test case run auto test:
+### 5. Generate Allure Report
 
-🟢 Login successfully
+```bash
+allure generate --single-file target/allure-results --clean
+```
 
-🟢 Login with Email invalid
+Then open the HTML file in the allure-report directory to view the report.
 
-🟢 Login with Password invalid
+---
 
-🟢 Search products and check info import to Excel file
+## 🖥️ How to Run the Project with IDEs
 
-🟢 Add products to cart and check information in excal file
+### IntelliJ IDEA
 
-🟢 Checkout in cart
+1. **Open the Project**
+   - Open IntelliJ IDEA
+   - Select File > Open... > Select the project directory > OK
 
-List test case is writed follow to the Page Object Model (POM) and improvement to run parallel.
+2. **Install Dependencies**
+   - Wait for IntelliJ to automatically import the Maven project
+   - Or right-click on the `pom.xml` file > Maven > Reload project
 
-🛠 System is required:
-✅ Java JDK 17 or more
+3. **Run the Test Suite**
+   - Open the `suites/suiteCms.xml` file
+   - Right-click on the file > Run 'suiteCms.xml'
+   - Or click on the run icon next to the `<suite>` tag in the file
 
-✅ Maven 3.6+
+4. **Create a TestNG Run Configuration**
+   - Select Run > Edit Configurations...
+   - Click the + button > TestNG
+   - Select Suite in Test kind
+   - Select the path to the `suites/suiteCms.xml` file in Suite
+   - Name the configuration and click Apply > OK
+   - Run the configuration from the toolbar
 
-✅ Browser Chrome (flexible)
+### Visual Studio Code
 
-✅ WebDriver (ChromeDriver..)
+1. **Install Extensions**
+   - Open VS Code
+   - Install extensions: Java Extension Pack, Maven for Java, Test Runner for Java
 
-🤝 Comment & Contact:
-You can write an issue if you have a bug or contribute the idea. Thankyou!
+2. **Open the Project**
+   - File > Open Folder... > Select the project directory
 
-Contact:
+3. **Install Dependencies**
+   - Open Terminal in VS Code
+   - Run the command: `mvn clean install`
 
-📧 Email: daonguyenanhtram@gmail.com
+4. **Run Tests with Maven**
+   - In Terminal, run the command: `mvn test -DsuiteXmlFile=suites/suiteCms.xml`
 
-🧑‍💻 GitHub: @Tramxinh
+5. **Run Tests with TestNG Explorer**
+   - Open the `suites/suiteCms.xml` file
+   - Click on the TestNG Explorer icon in the sidebar
+   - Find and run the test suite from the explorer
 
+---
+
+## 📋 Test Case List
+
+- 🟢 **Login Test**
+  - Successful login
+  - Login with invalid Email
+  - Login with invalid Password
+
+- 🟢 **Manage Profile Test**
+  - Manage personal information
+
+- 🟢 **Product Detail Test**
+  - Search for products and check information exported to Excel file
+
+- 🟢 **Cart Detail Test**
+  - Add products to cart and check information in Excel file
+
+- 🟢 **Checkout Detail Test**
+  - Checkout from cart
+
+All test cases are written following the Page Object Model (POM) pattern and are optimized to run in parallel.
+
+---
+
+## 🤝 Contributions & Contact
+
+You can create an issue if you find a bug or want to contribute ideas. Thank you!
+
+**Contact:**
+
+- 📧 Email: daonguyenanhtram@gmail.com
+- 🧑‍💻 GitHub: @Tramxinh
