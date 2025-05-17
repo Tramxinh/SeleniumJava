@@ -1,11 +1,5 @@
 package com.sam.cms.Pages;
 
-import io.qameta.allure.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
-
 import com.sam.cms.Pages.common.CommonPage;
 import com.sam.core.config.Configuration;
 import com.sam.core.config.TimeoutConstants;
@@ -14,11 +8,16 @@ import com.sam.core.helpers.CaptureHelper;
 import com.sam.core.helpers.ExcelHelper;
 import com.sam.core.utils.LogUtils;
 import com.sam.ui.keywords.WebUI;
+import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class ManageProfilePage extends CommonPage {
     // Constants
     private static final String SHEET_NAME = "Personal_Info";
-    private static final String IMAGE_PATH = "/src/test/resources/FileImage/samcuptest1.png";
+    private static final String IMAGE_PATH = "/src/test/resources/FileImage/t-shirtkid.jpg";
 
     // Locators
     private final By manageProfileTab = By.xpath("(//div[@class='sidemnenu mb-3']/ul/li)[7]");
@@ -34,8 +33,10 @@ public class ManageProfilePage extends CommonPage {
     private final By selectFile = By.xpath("(//div[@class='aiz-file-box'])[1]");
     private final By addFileButton = By.xpath("//div[@id='aizUploaderModal']//div/div[3]/button");
 
+
     @Step("Click Manage Profile Tab")
     public void clickManageProfileTab() {
+        this.acceptCookieAlert();
         WebUI.clickElement(manageProfileTab, TimeoutConstants.MEDIUM_TIMEOUT);
         WebUI.waitForPageLoaded();
     }
@@ -70,12 +71,7 @@ public class ManageProfilePage extends CommonPage {
     private void clearAndSetText(By locator, String text) {
         WebUI.clickElement(locator, TimeoutConstants.VERY_SHORT_TIMEOUT);
         Actions action = new Actions(DriverManager.getDriver());
-        action.keyDown(WebUI.getWebElement(locator), Keys.COMMAND)
-                .sendKeys("A")
-                .keyUp(Keys.COMMAND)
-                .sendKeys(text)
-                .build()
-                .perform();
+        action.keyDown(WebUI.getWebElement(locator), Keys.COMMAND).sendKeys("A").keyUp(Keys.COMMAND).sendKeys(text).build().perform();
     }
 
     @Step("select Photo")
@@ -89,8 +85,6 @@ public class ManageProfilePage extends CommonPage {
 
             String fileName = excelHelper.getCellData("File Name", 1);
             WebUI.setText(searchFile, fileName);
-            WebUI.waitForElementClickable(selectFile, TimeoutConstants.SHORT_TIMEOUT);
-
             handleFileIsSelected();
         } catch (Exception e) {
             LogUtils.error("Error in selectPhoto: " + e.getMessage());
@@ -117,16 +111,20 @@ public class ManageProfilePage extends CommonPage {
     @Step("Handle File Is Selected")
     public void handleFileIsSelected() {
         try {
+            WebUI.waitForElementClickable(selectFile, TimeoutConstants.SHORT_TIMEOUT);
             WebElement fileElement = WebUI.getWebElement(selectFile);
-            String selectedState = fileElement.getAttribute("data-selected");
-
-            if ("true".equals(selectedState)) {
+            String selectedState = fileElement.getDomAttribute("data-selected");
+            if (!"true".equals(selectedState)) {
+                LogUtils.info("File is not selected, clicking on it");
                 WebUI.clickElement(selectFile, TimeoutConstants.VERY_SHORT_TIMEOUT);
+            } else {
+                LogUtils.info("File is already selected, skipping click");
             }
-
-            WebUI.clickElement(addFileButton, TimeoutConstants.VERY_SHORT_TIMEOUT);
+            WebUI.clickElement(addFileButton, TimeoutConstants.SHORT_TIMEOUT);
+            WebUI.sleep(1);
         } catch (Exception e) {
             LogUtils.error("Error in handleFileIsSelected: " + e.getMessage());
+            CaptureHelper.captureScreenshot("handleFileIsSelected_Error");
         }
     }
 }

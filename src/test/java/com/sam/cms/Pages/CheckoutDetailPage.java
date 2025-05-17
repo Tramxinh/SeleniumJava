@@ -1,9 +1,8 @@
 package com.sam.cms.Pages;
 
-import org.openqa.selenium.By;
-
 import com.sam.core.config.TimeoutConstants;
 import com.sam.ui.keywords.WebUI;
+import org.openqa.selenium.By;
 
 public class CheckoutDetailPage extends CartDetailPage {
 
@@ -31,6 +30,7 @@ public class CheckoutDetailPage extends CartDetailPage {
 
     public void checkCompleteOrderSuccess() {
         WebUI.waitForPageLoaded();
+        this.acceptCookieAlert();
         WebUI.getText(completeOrderSuccess);
         WebUI.getText(orderCode);
     }
